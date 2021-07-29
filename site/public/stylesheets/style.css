@@ -1,0 +1,362 @@
+/*******************************************************************************
+********************************************************************************
+General Styling
+*/
+* {
+margin:0;
+padding:0;
+}
+
+body {
+  margin-top: 14px;
+  font: 15px 'Raleway', sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.centeralign {
+  text-align: center;
+}
+
+@media (min-width: 979px) {
+    body {
+        padding-top: 70px;
+    }
+}
+
+section {
+	margin: 0px;
+}
+
+/*******************************************************************************
+********************************************************************************
+Header Styling
+*/
+header {
+	font: 16px 'Quicksand', sans-serif;
+}
+
+.navbar-brand {
+	font-family: 'Noto Serif SC', serif;
+	font-size: 1.8em;
+	font-weight: 900;
+}
+
+.navbar .container {
+	text-align: center;
+}
+
+#searchicon {
+	margin-left: 10px;
+}
+
+.navbar div,
+.navbar button,
+.navbar a,
+.navbar {
+	background-image: none;
+	background-color: #353535 !important;
+  color: white !important;
+  border-color: white !important;
+}
+
+.navbar-scrolled {
+	opacity: 0.95;
+	background-color: #353535 !important;
+}
+
+.navbar a {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	color: black;
+	text-decoration: none;
+	letter-spacing: 1px;
+	margin: 0 5px;
+}
+
+.navbar a:hover {
+	opacity: 1;
+  font-weight: bolder;
+  font-size: 1.04em;
+}
+
+/*******************************************************************************
+********************************************************************************
+Index Page Styling
+*/
+
+/*******************************************************************************
+********************************************************************************
+Coupon Popup
+*/
+.error-message {
+  width: 100%;
+  height: 40px;
+  background-color: #EF8B09;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  padding-top: 8px;
+  text-align: center;
+}
+
+/*******************************************************************************
+********************************************************************************
+Coupon Popup
+*/
+.popup {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.coupon-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  /*border: 1px solid #888;*/
+  width: 60%; /* Could be more or less, depending on screen size */
+  height: auto;
+}
+
+.coupon-content img{
+	max-width:100%;
+	max-height:100%;
+	margin: 0;
+	padding: 0;
+}
+
+/* The Close Button */
+.coupon-close {
+  position: absolute;
+  margin: 10px;
+  background-color: #212121;
+  color: white;
+  font-size: 20px;
+  padding: 2px 8px;
+  border: 1px solid #212121;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.coupon-close:hover,
+.coupon-close:focus {
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*******************************************************************************
+********************************************************************************
+Carousel
+*/
+#carousel {
+  z-index: 1;
+	width: 100%;
+	margin: 0px;
+}
+
+#carousel img {
+	width: 100%;
+	object-fit: cover;
+	height: 400px !important;
+}
+
+#shop-all {
+	padding: 30px 0 30px 0;
+	text-align: center;
+}
+
+#contact {
+  padding: 20px 0;
+  text-align: center;
+}
+
+#contact a {
+	outline: none;
+	text-decoration: none;
+}
+
+#contact .contact-info {
+	margin-top: 10px;
+}
+
+#contact .contact-info h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #112363;
+}
+
+#contact .contact-info a {
+  color: #4869df;
+}
+
+#contact .contact-info a:hover {
+  color: #f82249;
+}
+
+#contact .contact-fax,
+#contact .contact-phone,
+#contact .contact-email {
+  margin-bottom: 20px;
+}
+
+.contact-form {
+	text-align: center;
+	margin: 20px 40px 20px 100px;
+}
+
+/*******************************************************************************
+********************************************************************************
+Categories Styling
+*/
+
+#product-categories {
+   padding-top: 40px;
+}
+
+.category-item {
+   width: 200px;
+   height: 200px;
+   margin: 20px 10px;
+   border: 10px solid #fff;
+   overflow: hidden;
+   position: relative;
+   text-align: center;
+   -webkit-box-shadow: 1px 1px 2px #e6e6e6;
+   -moz-box-shadow: 1px 1px 2px #e6e6e6;
+   box-shadow: 1px 1px 2px #e6e6e6;
+   cursor: default;
+   border-radius: 50%;
+}
+
+.category-item-mask, .category-item .content {
+   width: 200px;
+   height: 200px;
+   position: absolute;
+   overflow: hidden;
+   background: rgba(6, 12, 34, 0.3);
+   top: 0;
+   left: 0;
+}
+
+.category-item img {
+   display: block;
+   max-width: 100%;
+   max-height: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+   position: relative;
+}
+
+.category-item a.shop-button {
+   display: inline-block;
+   text-decoration: none;
+   padding: 10px 25px 10px 15px;
+   text-align: center;
+   margin: 40% auto;
+   width: 100%;
+   background: rgba(0, 0, 0, 0.8);
+   color: #fff;
+   text-transform: uppercase;
+   -webkit-box-shadow: 0 0 1px #000;
+   -moz-box-shadow: 0 0 1px #000;
+   box-shadow: 0 0 1px #000;
+}
+
+.category-item:hover img {
+   -webkit-transform: scale(1.1,1.1);
+   -moz-transform: scale(1.1,1.1);
+   -o-transform: scale(1.1,1.1);
+   -ms-transform: scale(1.1,1.1);
+   transform: scale(1.1,1.1);
+}
+
+.category-item:hover .category-item-mask, .category-item .content {
+	background: rgba(1, 1, 1, 0);
+}
+
+.category-item img {
+   -webkit-transition: all 0.2s linear;
+   -moz-transition: all 0.2s linear;
+   -o-transition: all 0.2s linear;
+   -ms-transition: all 0.2s linear;
+   transition: all 0.2s linear;
+}
+
+.category-item:hover a.shop-button  {
+   -webkit-transform: scale(1.1,1.1);
+   -moz-transform: scale(1.1,1.1);
+   -o-transform: scale(1.1,1.1);
+   -ms-transform: scale(1.1,1.1);
+   transform: scale(1.1,1.1);
+}
+
+/*******************************************************************************
+********************************************************************************
+Opening hours Styling
+*/
+.store-description {
+	margin: 10px 20% 30px 20%;
+}
+
+#hours {
+	text-align: center;
+	padding: 20px 0px;
+	background-color: #FEF5EB;
+}
+
+.hours-wrapper {
+	width: 30%;
+	text-align: left;
+	display: inline-block;
+}
+
+.hours-title,
+.highlight-hours {
+	color: #F07C09;
+}
+
+.hours {
+	padding: 20px 14px;
+	margin-top: -15px;
+	position: relative;
+}
+
+.hours li {
+	line-height: 30px;
+	border-bottom: 1px solid #333; 
+}
+
+.hours li:last-child {
+border-bottom: none; 
+}
+
+
+
+/*******************************************************************************
+********************************************************************************
+Product Edit form Styling
+*/
+
+#editform {
+	text-align: center;
+}
+
+#editform form {
+    display: inline-block;
+    text-align: left;
+}

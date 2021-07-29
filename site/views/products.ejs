@@ -1,0 +1,83 @@
+
+<% include partials/header %>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="javascripts/products.js"></script>
+<section id="products-display">
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class="mini-menu">
+          <ul>
+            <div class="header-item">Loại sản phẩm</div>
+            <li>
+              <% if (selectedCategory.localeCompare('all') == 0) { %>
+                <a href="/products" class="active">Tất cả sản phẩm</a>
+              <% } else { %>  
+                <a href="/products">Tất cả sản phẩm</a>
+              <% } %> 
+            </li>
+            <% categories.forEach(function(category){ %>
+              <li>
+                <% if (selectedCategory.localeCompare(category) == 0) { %>
+                  <a href="/products/category/<%=category%>" class="active"><%=category%></a>
+                <% } else { %>  
+                  <a href="/products/category/<%=category%>"><%=category%></a>
+                <% } %>
+              </li>
+            <% }) %>
+          </ul>
+          <div class="header-item">Bậc giá</div>
+          <div class="container">
+            <p>
+              <input type="text" readonly id="amount">
+            </p>
+            <div id="slider-range"></div>
+          </div>
+        </div> <!-- end of <div class="mini-menu"> -->
+      </div> <!-- end of <div class="col-3"> -->
+      <div class="col-9">
+        <div class="container">
+          <div class="preference">
+            <div class="btn-group float-right">
+              <button type="button" class="btn btn-warning">Xếp hạng</button>
+              <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/products/category/<%=selectedCategory%>/sortby/alphabetical">Tên sản phẩm</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/products/category/<%=selectedCategory%>/sortby/price">Giá Tiền</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/products/category/<%=selectedCategory%>/sortby/quantity">Số lượng</a>
+              </div>
+            </div>
+          </div> <!-- end of  <div class="preference"> -->
+          <div class="row products">
+              <% products.forEach(function(product){ %>
+                <div class="col-md-4 col-sm-6">
+                  <div class="product-item" data-price=<%=product["price"]%>>
+                    <div class="product-image">
+                      <img src=<%= product["imgUrl"]%>  alt=<%=product["name"]%>></img>
+                    </div>
+                    <div class="product-content">
+                      <h5 class="title"><%= product["name"]%></h5>
+                      <div class="price"><%= product["price"]%> VND </div>
+                    </div>
+                    <ul class="social"><!-- 
+                      <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li> -->
+                      <li><a href="/shoppingcart/addtocart/<%=product["id"]%>" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                  </div> <!-- end of  <div class="product-item"> -->
+                </div> <!-- end of  <div class="col-md-3 col-sm-6"> -->
+              <% }) %>
+            </div>
+          </div> <!--  end of <div class="row"> -->
+          <button class="loadmore">Xem thêm</button>
+        </div> <!--  end of <div class="container"> -->
+      </div> <!-- end of <div class="col-9"> -->
+    </div> <!-- end of <div class="row"> -->
+  </div>
+<hr>
+</section>
+<% include partials/footer %>

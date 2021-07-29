@@ -1,0 +1,57 @@
+<% include partials/header %>
+<script src="javascripts/admin.js"></script>
+<section id="shoppingcartdisplay" class="container">
+	<div class="row">
+		<div class="col-8">
+			<ul class="cart-list">
+				<% products.forEach(function(product) { %>
+					<li class="cart-item">
+						<div class="row">
+							<div class="col-3">
+								<img src="<%= product["imgUrl"]%>">
+							</div>
+							<div class="col-5">
+								<p class="product-title"> Tổng cộng: <%= product["price"] * product["purchasedQuantity"]%> VND </p>
+								<p> <%= product["name"] %>%> </p>
+								<p>Giá tiền từng sản phẩm:  <%= product["price"] %> VND </p>
+								<p>Số lượng mua hàng: <%= product["purchasedQuantity"] %> sản phẩm </p>
+							</div>
+							<div class="col-4">
+								<ul class="action-icons">
+								<li> <a href="/shoppingcart/removeall/<%=product["id"]%>" class="button"><i class="fas fa-times-circle fa-lg"></i></a> Xoá hết tất cả sản phẩm </li>
+								<li> <a href="/shoppingcart/addone/<%=product["id"]%>" class="button"><i class="fas fa-plus-circle fa-lg"></i></i></a> Thêm một sản phẩm   </li>
+								<li> <a href="/shoppingcart/removeone/<%=product["id"]%>" class="button"><i class="fas fa-plus-circle fa-lg"></i></a> Xoá một sản phẩm </li>
+								<ul>
+							</div>
+						</div> <!-- end of row -->
+					</li> <!-- end of each list item (product) -->
+					<hr>
+				<% }); %>
+			</ul>
+		</div> <!-- end of class="col-9" -->
+
+		<div class="col-4 order-summary">
+			<h3>Hóa đơn</h3>
+			<ul>
+				<li>Tổng tiền sản phẩm<span class="float-right"><%= totalPrices %> VND </span> <hr></li>
+				<li>Tiền giao Hàng <span class="float-right">5000 VND</span> <hr> </li>
+				<li class="discount">
+					<div> Mã khuyến mãi </div>
+					<!-- action="shoppingcart/applyDiscount" -->
+					<form class="form-inline my-2 my-lg-0" id="coupon-form" role="form">
+						<input type="text" id="coupon" name="coupon" class="form-control mb-4" placeholder="Mã khuyến mãi">
+						<button class="btn btn-outline-success my-2 my-sm-0 float-right" type="submit">Xác nhận</button>
+					</form>
+				</li>
+				
+				<li>Số tiền đã được giảm <span class="float-right"> <%= discountPercent * totalPrices / 100%> VND </span> <hr> </li>
+				<li>Tổng tiền <span class="float-right"><%= totalPrices + 5000 - discountPercent * totalPrices / 100 %> VND</span></li>
+			</ul>
+			<hr>
+				<button class="btn btn-primary">Mua hàng</button>
+		</div>
+	</div>
+	
+</section>
+
+<% include partials/footer %>
